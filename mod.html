@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>زرار تغيير المود 🚀</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(
+          135deg,
+          #ff9a9e 0%,
+          #fecfef 99%,
+          #fecfef 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        padding: 20px;
+      }
+
+      .container {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 40px 20px;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+        position: relative;
+      }
+
+      h1 {
+        color: #d63384;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+
+      p.subtitle {
+        color: #6c757d;
+        font-size: 1rem;
+        margin-bottom: 30px;
+      }
+
+      .main-btn {
+        background-color: #ff4757;
+        color: white;
+        border: none;
+        padding: 15px 32px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        transition:
+          transform 0.2s,
+          background-color 0.2s;
+        position: relative;
+      }
+
+      .main-btn:hover {
+        background-color: #ff6b81;
+      }
+
+      /* الكروت */
+      .cards-section {
+        display: none;
+        margin-top: 20px;
+        animation: fadeIn 0.8s ease-in-out forwards;
+      }
+
+      .cards-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .card {
+        background: white;
+        border: 2px dashed #ff4757;
+        border-radius: 15px;
+        padding: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        background: #fff0f3;
+      }
+
+      .card-title {
+        font-weight: bold;
+        color: #2f3542;
+      }
+
+      .card-content {
+        display: none;
+        margin-top: 10px;
+        color: #ff4757;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title">مكافحة النكد السريعة 🛠️</h1>
+      <p class="subtitle" id="status">
+        اضغطي على الزرار علشان تفضي الشحنة السلبية
+      </p>
+
+      <button class="main-btn" id="actionBtn" onclick="handleButtonClick()">
+        اضغطي هنا لو متضايقة 👈
+      </button>
+
+      <!-- منطقة المفاجأة والكروت -->
+      <div class="cards-section" id="cardsSection">
+        <h2>🎉 تم تفريغ النكد بنجاح!</h2>
+        <p style="margin-bottom: 15px; color: #555">اختاري كارت لروقان بالك:</p>
+
+        <div class="cards-grid">
+          <div class="card" onclick="openCard(this)">
+            <div class="card-title">💌 كارت رقم 1: رسالة صلح</div>
+            <div class="card-content">
+              مافيش حاجة في الدنيا كلها تستاهل تزعلك، وضحكتك بالدنيا! ❤️
+            </div>
+          </div>
+
+          <div class="card" onclick="openCard(this)">
+            <div class="card-title">🍦 كارت رقم 2: طلب دليفري</div>
+            <div class="card-content">
+              الكارت ده بيديكي صلاحية تطلبي أي أكلة أو أيس كريم على حسابي فوراً
+              🍔🍕
+            </div>
+          </div>
+
+          <div class="card" onclick="openCard(this)">
+            <div class="card-title">🎵 كارت رقم 3: وصفة الروقان</div>
+            <div class="card-content">
+              افتحي أي أغنية بتحبيها، وروقي كده وخلي الباقي عليا ✨
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let clickCount = 0;
+      const btn = document.getElementById("actionBtn");
+      const statusText = document.getElementById("status");
+      const titleText = document.getElementById("title");
+      const cardsSection = document.getElementById("cardsSection");
+
+      function handleButtonClick() {
+        clickCount++;
+
+        if (clickCount === 1) {
+          statusText.innerText = "جاري تفريغ الشحنات السلبية... ضغطة كمان!";
+          btn.innerText = "تاني.. اضغطي كمان مرة 🔄";
+        } else if (clickCount === 2) {
+          statusText.innerText = "سرعتك مش قد كده! كمان محاولة 😉";
+          btn.innerText = "آخر مرة خلاص! 🏃‍♂️";
+          // تحريك الزرار مكان عشوائي خفيف
+          btn.style.transform = "translate(30px, -10px)";
+        } else if (clickCount >= 3) {
+          // إخفاء الزرار والنص العلوي وإظهار الكروت
+          btn.style.display = "none";
+          statusText.style.display = "none";
+          titleText.style.display = "none";
+          cardsSection.style.display = "block";
+        }
+      }
+
+      function openCard(cardElement) {
+        const content = cardElement.querySelector(".card-content");
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
